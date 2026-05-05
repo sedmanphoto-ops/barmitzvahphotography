@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Packages & Pricing | Sedman Bar Mitzvah Photography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    .page-hero {
+      background: var(--charcoal);
+      padding: 10rem 3rem 5rem;
+      text-align: center;
+    }
+    .page-hero .section-eyebrow { color: var(--gold-light); }
+    .page-hero .section-title { color: var(--white); margin-bottom: 0.75rem; }
+    .page-hero p { color: rgba(255,255,255,0.6); font-weight: 300; max-width: 55ch; margin: 0 auto; }
+
+    .packages-full {
+      max-width: 1100px;
+      margin: 5rem auto;
+      padding: 0 3rem;
+    }
+
+    .packages-full-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 5rem;
+    }
+
+    .pkg-full-card {
+      border: 1px solid var(--cream-dark);
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .pkg-full-card:hover { border-color: var(--gold); }
+
+    .pkg-full-card.featured {
+      background: var(--charcoal);
+      border-color: var(--gold);
+    }
+
+    .pkg-header {
+      padding: 2rem 2rem 1.5rem;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .pkg-full-card.featured .pkg-header { border-color: rgba(255,255,255,0.1); }
+
+    .pkg-name {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      margin-bottom: 0.25rem;
+    }
+
+    .pkg-full-card.featured .pkg-name { color: var(--white); }
+
+    .pkg-duration {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .pkg-price {
+      margin-top: 1rem;
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      font-weight: 300;
+      color: var(--charcoal);
+    }
+
+    .pkg-full-card.featured .pkg-price { color: var(--white); }
+
+    .pkg-price-note {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 0.2rem;
+    }
+
+    .pkg-full-card.featured .pkg-price-note { color: rgba(255,255,255,0.45); }
+
+    .pkg-body { padding: 2rem; }
+
+    .pkg-body ul { display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 2rem; }
+
+    .pkg-body li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      font-size: 0.875rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    .pkg-full-card.featured .pkg-body li { color: rgba(255,255,255,0.65); }
+
+    .pkg-body li::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 0.55rem;
+      flex-shrink: 0;
+      margin-top: 0.35rem;
+    }
+
+    .add-ons {
+      background: var(--cream-dark);
+      padding: 4rem 3rem;
+      margin-bottom: 5rem;
+    }
+
+    .add-ons h2 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .add-ons-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .add-on {
+      background: var(--white);
+      padding: 1.5rem;
+      border-left: 2px solid var(--gold);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .add-on-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--charcoal);
+    }
+
+    .add-on-desc {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      margin-top: 0.25rem;
+    }
+
+    .add-on-price {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    .faq-note {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .faq-note a { color: var(--gold); }
+
+    @media (max-width: 900px) {
+      .packages-full-grid { grid-template-columns: 1fr; }
+      .add-ons-grid { grid-template-columns: 1fr; }
+      .packages-full { padding: 0 1.5rem; }
+      .page-hero { padding: 8rem 1.5rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav scrolled" id="nav">
+    <a href="/" class="nav-logo">
+      <span class="logo-s">S</span><span class="logo-text">EDMAN</span>
+      <span class="logo-sub">BAR · BAT MITZVAH PHOTOGRAPHY</span>
+    </a>
+    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/#about">About</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="jewish-weddings.html">Jewish Weddings</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html" class="nav-cta">Book a Consultation</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <p class="section-eyebrow">Investment</p>
+    <h1 class="section-title">Packages & Pricing</h1>
+    <p>Every package is a starting point. We're happy to customize coverage to fit your day perfectly. Contact us for a custom quote.</p>
+  </section>
+
+  <div class="packages-full">
+    <div class="packages-full-grid">
+
+      <div class="pkg-full-card">
+        <div class="pkg-header">
+          <div class="pkg-name">Essential</div>
+          <div class="pkg-duration">6 Hours Coverage</div>
+          <div class="pkg-price">Contact for Pricing</div>
+          <div class="pkg-price-note">Ceremony + Reception</div>
+        </div>
+        <div class="pkg-body">
+          <ul>
+            <li>One lead photographer</li>
+            <li>6 hours of continuous coverage</li>
+            <li>Online proofing gallery (password protected)</li>
+            <li>Full-resolution digital files, all edited images</li>
+            <li>Personal print release included</li>
+            <li>Delivered within 6 weeks</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline" style="width:100%;display:block;text-align:center">Inquire</a>
+        </div>
+      </div>
+
+      <div class="pkg-full-card featured">
+        <div class="pkg-badge" style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);color:white;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 1rem;font-family:var(--font-body);font-weight:600;white-space:nowrap">Most Popular</div>
+        <div class="pkg-header">
+          <div class="pkg-name">Signature</div>
+          <div class="pkg-duration">8 Hours Coverage</div>
+          <div class="pkg-price">Contact for Pricing</div>
+          <div class="pkg-price-note">Our most-requested package</div>
+        </div>
+        <div class="pkg-body">
+          <ul>
+            <li>Lead photographer + second shooter</li>
+            <li>8 hours of continuous coverage</li>
+            <li>Pre-event portrait session (1 hour)</li>
+            <li>Online proofing gallery (password protected)</li>
+            <li>Full-resolution digital files, all edited images</li>
+            <li>Personal print release included</li>
+            <li>Sneak peek gallery within 1 week</li>
+            <li>Delivered within 6 weeks</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary" style="width:100%;display:block;text-align:center">Inquire</a>
+        </div>
+      </div>
+
+      <div class="pkg-full-card">
+        <div class="pkg-header">
+          <div class="pkg-name">Heirloom</div>
+          <div class="pkg-duration">Full Day Coverage</div>
+          <div class="pkg-price">Contact for Pricing</div>
+          <div class="pkg-price-note">The complete experience</div>
+        </div>
+        <div class="pkg-body">
+          <ul>
+            <li>Lead photographer + second shooter</li>
+            <li>Full day coverage (up to 10 hours)</li>
+            <li>Pre-event portrait session (1 hour)</li>
+            <li>Online proofing gallery (password protected)</li>
+            <li>Full-resolution digital files, all edited images</li>
+            <li>Personal print release included</li>
+            <li>Custom designed lay-flat album (40 pages)</li>
+            <li>$250 wall portrait credit</li>
+            <li>Sneak peek gallery within 1 week</li>
+            <li>Delivered within 6 weeks</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline" style="width:100%;display:block;text-align:center">Inquire</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="add-ons">
+    <h2>Optional Add-Ons</h2>
+    <div class="add-ons-grid">
+      <div class="add-on">
+        <div>
+          <div class="add-on-name">Heirloom Album</div>
+          <div class="add-on-desc">Custom lay-flat, 40 pages, archival quality</div>
+        </div>
+        <div class="add-on-price">Custom Quote</div>
+      </div>
+      <div class="add-on">
+        <div>
+          <div class="add-on-name">Additional Hours</div>
+          <div class="add-on-desc">Extend coverage as needed</div>
+        </div>
+        <div class="add-on-price">Per Hour</div>
+      </div>
+      <div class="add-on">
+        <div>
+          <div class="add-on-name">Canvas Wall Art</div>
+          <div class="add-on-desc">Gallery-wrapped, multiple sizes</div>
+        </div>
+        <div class="add-on-price">From $295</div>
+      </div>
+      <div class="add-on">
+        <div>
+          <div class="add-on-name">Rush Delivery</div>
+          <div class="add-on-desc">Sneak peek gallery in 48 hours</div>
+        </div>
+        <div class="add-on-price">Custom Quote</div>
+      </div>
+      <div class="add-on">
+        <div>
+          <div class="add-on-name">Mitzvah + Wedding Bundle</div>
+          <div class="add-on-desc">Book both events and save</div>
+        </div>
+        <div class="add-on-price">Ask Us</div>
+      </div>
+      <div class="add-on">
+        <div>
+          <div class="add-on-name">Videography</div>
+          <div class="add-on-desc">Cinematic video, edited highlight reel</div>
+        </div>
+        <div class="add-on-price">Ask Us</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="faq-note">Have more questions about what's included? Visit our <a href="faq.html">FAQ page</a> or <a href="contact.html">contact us directly</a>.</p>
+
+  <section class="final-cta" style="margin-top:0">
+    <div class="final-cta-inner">
+      <h2>Ready to secure your date?</h2>
+      <p>Popular dates fill quickly, especially spring and fall. Reach out early.</p>
+      <a href="contact.html" class="btn btn-primary btn-large">Book a Free Consultation</a>
+      <div class="final-contact-info">
+        <a href="tel:7817943222">781-794-3222</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-s">S</span><span class="logo-text">EDMAN</span>
+        <p class="footer-tagline">Bar · Bat Mitzvah Photography<br />Boston, Massachusetts</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="jewish-weddings.html">Jewish Weddings</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><a href="tel:7817943222">781-794-3222</a></p>
+        <p><a href="mailto:stephen@barmitzvahphotography.com">stephen@barmitzvahphotography.com</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Stephen Sedman Photography</p>
+    </div>
+  </footer>
+  <script src="scripts/main.js"></script>
+</body>
+</html>

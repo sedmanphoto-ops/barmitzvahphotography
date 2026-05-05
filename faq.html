@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ | Sedman Bar Mitzvah Photography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    .page-hero {
+      background: var(--charcoal);
+      padding: 10rem 3rem 5rem;
+      text-align: center;
+    }
+    .page-hero .section-eyebrow { color: var(--gold-light); }
+    .page-hero .section-title { color: var(--white); margin-bottom: 0; }
+
+    .faq-section {
+      max-width: 800px;
+      margin: 5rem auto;
+      padding: 0 3rem;
+    }
+
+    .faq-category {
+      margin-bottom: 4rem;
+    }
+
+    .faq-category-title {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 1.25rem 0;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 1.5rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      font-weight: 300;
+    }
+
+    .faq-item.open .faq-question::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 500px;
+    }
+
+    .faq-answer p {
+      padding-bottom: 1.5rem;
+      color: var(--text-light);
+      line-height: 1.8;
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+
+    @media (max-width: 768px) {
+      .faq-section { padding: 0 1.5rem; }
+      .page-hero { padding: 8rem 1.5rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav scrolled" id="nav">
+    <a href="/" class="nav-logo">
+      <span class="logo-s">S</span><span class="logo-text">EDMAN</span>
+      <span class="logo-sub">BAR · BAT MITZVAH PHOTOGRAPHY</span>
+    </a>
+    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/#about">About</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="jewish-weddings.html">Jewish Weddings</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html" class="nav-cta">Book a Consultation</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <p class="section-eyebrow">Your Questions, Answered</p>
+    <h1 class="section-title">Frequently Asked Questions</h1>
+  </section>
+
+  <section class="faq-section">
+
+    <div class="faq-category">
+      <div class="faq-category-title">Booking & Logistics</div>
+
+      <div class="faq-item">
+        <button class="faq-question">How far in advance should I book?</button>
+        <div class="faq-answer"><p>We recommend booking 12–18 months in advance, especially for spring and fall dates (September–November and March–June are our busiest seasons). That said, contact us regardless — we occasionally have openings closer to your date.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">What areas do you serve?</button>
+        <div class="faq-answer"><p>We are based in the Greater Boston area and serve all of Massachusetts, Rhode Island, New Hampshire, Connecticut, Maine, and Vermont. We are also available for destination events — including Israel — with a travel fee. Please ask.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">What does the booking process look like?</button>
+        <div class="faq-answer"><p>First, we have a free consultation by phone or Zoom. If we're a good fit, we send a contract and collect a retainer to hold your date. The remaining balance is due 30 days before the event. Simple and transparent — no surprises.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Do you photograph Shabbat morning services?</button>
+        <div class="faq-answer"><p>Yes. We are very experienced with Shabbat morning B'nei Mitzvah services and are deeply familiar with the photography protocols of different congregations — including those with no-photography rules during certain portions of the service. We always confirm synagogue guidelines well in advance and respect them fully.</p></div>
+      </div>
+    </div>
+
+    <div class="faq-category">
+      <div class="faq-category-title">Photography & Coverage</div>
+
+      <div class="faq-item">
+        <button class="faq-question">Do you bring a second photographer?</button>
+        <div class="faq-answer"><p>The Signature and Heirloom packages include a professional second shooter. The Essential package uses one lead photographer. With two shooters, we can cover the b'nei mitzvah child and their parents simultaneously during key moments — something we highly recommend for complex, multi-location days.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">How do you handle family portraits?</button>
+        <div class="faq-answer"><p>We ask that you provide a "must-have" list of family groupings in advance. During the event, we move through portraits efficiently and warmly — our goal is 45 minutes or less so you can get to your party. Stephen is experienced at organizing large, multigenerational families without chaos.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">What is your editing style?</button>
+        <div class="faq-answer"><p>We describe our style as timeless, warm, and true-to-life. We are not heavy on filters or trendy presets. The goal is that your photos look as beautiful in 30 years as they do today. We edit every image delivered — no unedited RAW files are included.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">How many photos will we receive?</button>
+        <div class="faq-answer"><p>This varies by package length and the flow of your day. You can typically expect 400–700+ fully edited images for a full-day event with two photographers. We never artificially limit your gallery — every strong image is included.</p></div>
+      </div>
+    </div>
+
+    <div class="faq-category">
+      <div class="faq-category-title">Delivery & Products</div>
+
+      <div class="faq-item">
+        <button class="faq-question">How long until we receive our photos?</button>
+        <div class="faq-answer"><p>Your online proofing gallery is delivered within 6 weeks of your event. All Signature and Heirloom packages include a sneak peek gallery of select images within 1 week. Rush delivery (48-hour sneak peek) is available as an add-on.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Can we order prints directly?</button>
+        <div class="faq-answer"><p>Yes. Your online gallery includes a professional print store where you can order anything from 4×6 prints to large canvas art, directly shipped to your home. All products are lab-quality, archival prints — not drugstore prints.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">What are your albums like?</button>
+        <div class="faq-answer"><p>Our albums are lay-flat, museum-quality books designed and printed in the USA. We design them for you and present a proof for your approval before printing. These are heirloom objects — the kind that sit on a coffee table and get opened at every family gathering for decades.</p></div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="final-cta">
+    <div class="final-cta-inner">
+      <h2>Still have questions?</h2>
+      <p>We love talking to families. Call us, email us, or fill out the contact form.</p>
+      <a href="contact.html" class="btn btn-primary btn-large">Get in Touch</a>
+      <div class="final-contact-info">
+        <a href="tel:7817943222">781-794-3222</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-s">S</span><span class="logo-text">EDMAN</span>
+        <p class="footer-tagline">Bar · Bat Mitzvah Photography<br />Boston, Massachusetts</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="jewish-weddings.html">Jewish Weddings</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><a href="tel:7817943222">781-794-3222</a></p>
+        <p><a href="mailto:stephen@barmitzvahphotography.com">stephen@barmitzvahphotography.com</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Stephen Sedman Photography</p>
+    </div>
+  </footer>
+  <script src="scripts/main.js"></script>
+  <script>
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+  </script>
+</body>
+</html>
