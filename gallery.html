@@ -9,96 +9,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles/main.css" />
   <style>
-    .page-hero {
-      background: var(--charcoal);
-      padding: 10rem 3rem 5rem;
-      text-align: center;
-    }
-    .page-hero .section-eyebrow { color: var(--gold-light); }
-    .page-hero .section-title { color: var(--white); margin-bottom: 0.75rem; }
-    .page-hero p { color: rgba(255,255,255,0.6); font-weight: 300; }
-
-    .gallery-filters {
-      max-width: var(--max-w);
-      margin: 3rem auto 2rem;
-      padding: 0 3rem;
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      font-size: 0.68rem;
-      font-family: var(--font-body);
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      padding: 0.6rem 1.25rem;
-      border: 1px solid var(--cream-dark);
-      background: transparent;
-      color: var(--text-light);
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .filter-btn.active,
-    .filter-btn:hover {
-      background: var(--charcoal);
-      color: var(--white);
-      border-color: var(--charcoal);
-    }
-
-    .masonry-gallery {
-      max-width: var(--max-w);
-      margin: 0 auto 5rem;
-      padding: 0 3rem;
-      columns: 3;
-      column-gap: 12px;
-    }
-
-    .masonry-item {
-      break-inside: avoid;
-      margin-bottom: 12px;
-      overflow: hidden;
-      position: relative;
-      cursor: pointer;
-    }
-
-    .masonry-placeholder {
-      width: 100%;
-      display: block;
-      background: linear-gradient(135deg, #3a3028 0%, #5a4a38 50%, #2a2018 100%);
-      transition: transform 0.5s ease;
-    }
-
-    .masonry-item:hover .masonry-placeholder { transform: scale(1.03); }
-
-    .masonry-item .overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0);
-      transition: background 0.3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .masonry-item:hover .overlay { background: rgba(0,0,0,0.2); }
-
-    .gallery-note {
-      text-align: center;
-      padding: 2rem 3rem 4rem;
-      color: var(--text-light);
-      font-style: italic;
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-    }
-
-    @media (max-width: 768px) {
-      .masonry-gallery { columns: 2; padding: 0 1.5rem; }
-      .gallery-filters { padding: 0 1.5rem; }
-      .page-hero { padding: 8rem 1.5rem 4rem; }
-    }
+    .page-hero{background:var(--charcoal);padding:10rem 3rem 5rem;text-align:center}
+    .page-hero .section-eyebrow{color:var(--gold-light)}
+    .page-hero .section-title{color:var(--white);margin-bottom:.75rem}
+    .page-hero p{color:rgba(255,255,255,.6);font-weight:300}
+    .masonry-gallery{max-width:var(--max-w);margin:3rem auto 5rem;padding:0 1.5rem;columns:3;column-gap:10px}
+    .masonry-item{break-inside:avoid;margin-bottom:10px;overflow:hidden;position:relative;cursor:pointer}
+    .masonry-item img{width:100%;display:block;transition:transform .5s ease}
+    .masonry-item:hover img{transform:scale(1.03)}
+    .masonry-item .caption{position:absolute;bottom:0;left:0;right:0;padding:1.5rem 1rem 1rem;background:linear-gradient(transparent,rgba(0,0,0,.6));color:var(--white);font-family:var(--font-display);font-size:1rem;font-style:italic;font-weight:300;opacity:0;transform:translateY(6px);transition:all .3s ease}
+    .masonry-item:hover .caption{opacity:1;transform:translateY(0)}
+    .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:9999;align-items:center;justify-content:center}
+    .lightbox.active{display:flex}
+    .lightbox img{max-width:90vw;max-height:90vh;object-fit:contain}
+    .lightbox-close{position:absolute;top:1.5rem;right:2rem;color:white;font-size:2rem;cursor:pointer;background:none;border:none;line-height:1}
+    .lightbox-prev,.lightbox-next{position:absolute;top:50%;transform:translateY(-50%);color:white;font-size:2rem;cursor:pointer;background:none;border:none;padding:1rem}
+    .lightbox-prev{left:1rem}
+    .lightbox-next{right:1rem}
+    .gallery-note{text-align:center;padding:0 2rem 4rem;color:var(--text-light);font-size:.85rem}
+    .gallery-note a{color:var(--gold)}
+    @media(max-width:768px){.masonry-gallery{columns:2}.page-hero{padding:8rem 1.5rem 4rem}}
   </style>
 </head>
 <body>
@@ -117,71 +47,56 @@
       <li><a href="contact.html" class="nav-cta">Book a Consultation</a></li>
     </ul>
   </nav>
-
   <section class="page-hero">
     <p class="section-eyebrow">The Work</p>
     <h1 class="section-title">Gallery</h1>
     <p>A selection of Bar and Bat Mitzvah moments from across New England.</p>
   </section>
-
-  <div class="gallery-filters">
-    <button class="filter-btn active">All</button>
-    <button class="filter-btn">Ceremony</button>
-    <button class="filter-btn">Torah Reading</button>
-    <button class="filter-btn">Family Portraits</button>
-    <button class="filter-btn">Reception & Dancing</button>
-    <button class="filter-btn">Candids</button>
+  <div class="masonry-gallery" id="gallery">
+    <div class="masonry-item" data-index="0"><img src="public/images/gallery/torah-reading-bar.jpg" alt="Bar Mitzvah Torah reading" loading="lazy" /><div class="caption">The Torah Reading</div></div>
+    <div class="masonry-item" data-index="1"><img src="public/images/gallery/portrait-bat-mitzvah.jpg" alt="Bat Mitzvah portrait" loading="lazy" /><div class="caption">Portrait Session</div></div>
+    <div class="masonry-item" data-index="2"><img src="public/images/gallery/hora-chair.jpg" alt="The Hora" loading="lazy" /><div class="caption">The Hora</div></div>
+    <div class="masonry-item" data-index="3"><img src="public/images/gallery/family-bimah.jpg" alt="Family portrait" loading="lazy" /><div class="caption">Family Portrait</div></div>
+    <div class="masonry-item" data-index="4"><img src="public/images/gallery/bat-mitzvah-torah.jpg" alt="Bat Mitzvah with Torah" loading="lazy" /><div class="caption">With the Torah</div></div>
+    <div class="masonry-item" data-index="5"><img src="public/images/gallery/candle-lighting.jpg" alt="Candle lighting" loading="lazy" /><div class="caption">Candle Lighting</div></div>
+    <div class="masonry-item" data-index="6"><img src="public/images/gallery/ceremony-torah.jpg" alt="The ceremony" loading="lazy" /><div class="caption">The Ceremony</div></div>
+    <div class="masonry-item" data-index="7"><img src="public/images/gallery/family-portrait.jpg" alt="Family portrait" loading="lazy" /><div class="caption">Generations Together</div></div>
+    <div class="masonry-item" data-index="8"><img src="public/images/gallery/challah-blessing.jpg" alt="Challah blessing" loading="lazy" /><div class="caption">The Challah Blessing</div></div>
+    <div class="masonry-item" data-index="9"><img src="public/images/gallery/family-torah.jpg" alt="Family with Torah" loading="lazy" /><div class="caption">Family Portrait</div></div>
+    <div class="masonry-item" data-index="10"><img src="public/images/gallery/reception-friends.jpg" alt="The celebration" loading="lazy" /><div class="caption">The Celebration</div></div>
+    <div class="masonry-item" data-index="11"><img src="public/images/gallery/hora-bar.jpg" alt="Hora" loading="lazy" /><div class="caption">Pure Joy</div></div>
   </div>
-
-  <!-- Gallery will be populated with real photos. 
-       Placeholder grid shown for layout reference. 
-       Replace .masonry-placeholder divs with <img> tags pointing to your actual photos. -->
-  <div class="masonry-gallery">
-    <div class="masonry-item"><div class="masonry-placeholder" style="height:320px"><div class="overlay"></div></div></div>
-    <div class="masonry-item"><div class="masonry-placeholder" style="height:220px"><div class="overlay"></div></div></div>
-    <div class="masonry-item"><div class="masonry-placeholder" style="height:280px"><div class="overlay"></div></div></div>
-    <div class="masonry-item"><div class="masonry-placeholder" style="height:240px"><div class="overlay"></div></div></div>
-    <div class="masonry-item"><div class="masonry-placeholder" style="height:360px"><div class="overlay"></div></div></div>
-    <div class="masonry-item"><div class="masonry-placeholder" style="height:200px"><div class="overlay"></div></div></div>
-    <div class="masonry-item"><div class="masonry-placeholder" style="height:300px"><div class="overlay"></div></div></div>
-    <div class="masonry-item"><div class="masonry-placeholder" style="height:250px"><div class="overlay"></div></div></div>
-    <div class="masonry-item"><div class="masonry-placeholder" style="height:340px"><div class="overlay"></div></div></div>
-    <div class="masonry-item"><div class="masonry-placeholder" style="height:220px"><div class="overlay"></div></div></div>
-    <div class="masonry-item"><div class="masonry-placeholder" style="height:290px"><div class="overlay"></div></div></div>
-    <div class="masonry-item"><div class="masonry-placeholder" style="height:260px"><div class="overlay"></div></div></div>
+  <p class="gallery-note">All photography © Stephen Sedman. Reproduced with family permission.<br/><a href="contact.html">Book a consultation to discuss your event →</a></p>
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lbClose">✕</button>
+    <button class="lightbox-prev" id="lbPrev">‹</button>
+    <img src="" alt="" id="lbImg" />
+    <button class="lightbox-next" id="lbNext">›</button>
   </div>
-
-  <p class="gallery-note">
-    All photography © Stephen Sedman. Reproduced with family permission.<br/>
-    <a href="contact.html" style="color:var(--gold)">Book a consultation to discuss your event →</a>
-  </p>
-
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <span class="logo-s">S</span><span class="logo-text">EDMAN</span>
-        <p class="footer-tagline">Bar · Bat Mitzvah Photography<br />Boston, Massachusetts</p>
-      </div>
-      <div class="footer-links">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="packages.html">Packages</a></li>
-          <li><a href="jewish-weddings.html">Jewish Weddings</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-contact">
-        <h4>Contact</h4>
-        <p><a href="tel:7817943222">781-794-3222</a></p>
-        <p><a href="mailto:stephen@barmitzvahphotography.com">stephen@barmitzvahphotography.com</a></p>
-      </div>
+      <div class="footer-brand"><span class="logo-s">S</span><span class="logo-text">EDMAN</span><p class="footer-tagline">Bar · Bat Mitzvah Photography<br />Boston, Massachusetts</p></div>
+      <div class="footer-links"><h4>Navigation</h4><ul><li><a href="gallery.html">Gallery</a></li><li><a href="packages.html">Packages</a></li><li><a href="jewish-weddings.html">Jewish Weddings</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-contact"><h4>Contact</h4><p><a href="tel:7817943222">781-794-3222</a></p><p><a href="mailto:stephen@barmitzvahphotography.com">stephen@barmitzvahphotography.com</a></p></div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Stephen Sedman Photography</p>
-    </div>
+    <div class="footer-bottom"><p>© 2026 Stephen Sedman Photography</p></div>
   </footer>
   <script src="scripts/main.js"></script>
+  <script>
+    const items=document.querySelectorAll('.masonry-item');
+    const lb=document.getElementById('lightbox');
+    const lbImg=document.getElementById('lbImg');
+    let current=0;
+    const srcs=Array.from(items).map(i=>i.querySelector('img').src);
+    const alts=Array.from(items).map(i=>i.querySelector('img').alt);
+    function openLb(idx){current=idx;lbImg.src=srcs[current];lbImg.alt=alts[current];lb.classList.add('active');document.body.style.overflow='hidden';}
+    function closeLb(){lb.classList.remove('active');document.body.style.overflow='';}
+    items.forEach((item,i)=>item.addEventListener('click',()=>openLb(i)));
+    document.getElementById('lbClose').addEventListener('click',closeLb);
+    document.getElementById('lbPrev').addEventListener('click',()=>openLb((current-1+srcs.length)%srcs.length));
+    document.getElementById('lbNext').addEventListener('click',()=>openLb((current+1)%srcs.length));
+    lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
+    document.addEventListener('keydown',e=>{if(!lb.classList.contains('active'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')openLb((current-1+srcs.length)%srcs.length);if(e.key==='ArrowRight')openLb((current+1)%srcs.length);});
+  </script>
 </body>
 </html>
