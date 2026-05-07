@@ -36,7 +36,8 @@ body {
 }
 
 img { display: block; max-width: 100%; }
-a { color: inherit; text-decoration: none; }
+a { color: inherit; text-decoration: none;   mix-blend-mode: screen;
+}
 ul { list-style: none; }
 
 /* ---- TYPOGRAPHY ---- */
