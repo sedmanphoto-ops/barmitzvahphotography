@@ -113,7 +113,7 @@
     .add-ons {
       background: var(--cream-dark);
       padding: 4rem 3rem;
-      margin-bottom: 5rem;
+      margin-bottom: 0;
     }
 
     .add-ons h2 {
@@ -162,20 +162,91 @@
       white-space: nowrap;
     }
 
-    .faq-note {
-      text-align: center;
-      padding: 2rem;
-      color: var(--text-light);
-      font-size: 0.9rem;
+    /* Prints table */
+    .prints-section {
+      max-width: 900px;
+      margin: 3rem auto 0;
+      padding: 0 3rem;
     }
 
-    .faq-note a { color: var(--gold); }
+    .prints-section h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--charcoal);
+    }
+
+    .prints-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .print-item {
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      padding: 0.75rem;
+      text-align: center;
+    }
+
+    .print-size {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--charcoal);
+    }
+
+    .print-price {
+      font-size: 0.8rem;
+      color: var(--gold);
+      margin-top: 0.2rem;
+    }
+
+    .prints-note {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    /* Fine print */
+    .fine-print {
+      max-width: 700px;
+      margin: 3rem auto;
+      padding: 0 3rem;
+    }
+
+    .fine-print ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .fine-print li {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .fine-print li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
 
     @media (max-width: 900px) {
       .packages-full-grid { grid-template-columns: 1fr; }
       .add-ons-grid { grid-template-columns: 1fr; }
       .packages-full { padding: 0 1.5rem; }
       .page-hero { padding: 8rem 1.5rem 4rem; }
+      .prints-section { padding: 0 1.5rem; }
+      .fine-print { padding: 0 1.5rem; }
     }
   </style>
 </head>
@@ -206,19 +277,17 @@
 
       <div class="pkg-full-card">
         <div class="pkg-header">
-          <div class="pkg-name">Essential</div>
-          <div class="pkg-duration">6 Hours Coverage</div>
-          <div class="pkg-price">Contact for Pricing</div>
+          <div class="pkg-name">Classic Coverage</div>
+          <div class="pkg-duration">Up to 6 Hours</div>
+          <div class="pkg-price">$2,500</div>
           <div class="pkg-price-note">Ceremony + Reception</div>
         </div>
         <div class="pkg-body">
           <ul>
-            <li>One lead photographer</li>
-            <li>6 hours of continuous coverage</li>
-            <li>Online proofing gallery (password protected)</li>
-            <li>Full-resolution digital files, all edited images</li>
-            <li>Personal print release included</li>
-            <li>Delivered within 6 weeks</li>
+            <li>Professional photographer for up to 6 hours</li>
+            <li>All digital files on USB drive (full resolution, no watermark)</li>
+            <li>All images online for 6 months</li>
+            <li>Albums and extra prints available à la carte</li>
           </ul>
           <a href="contact.html" class="btn btn-outline" style="width:100%;display:block;text-align:center">Inquire</a>
         </div>
@@ -227,21 +296,17 @@
       <div class="pkg-full-card featured">
         <div class="pkg-badge" style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);color:white;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 1rem;font-family:var(--font-body);font-weight:600;white-space:nowrap">Most Popular</div>
         <div class="pkg-header">
-          <div class="pkg-name">Signature</div>
-          <div class="pkg-duration">8 Hours Coverage</div>
-          <div class="pkg-price">Contact for Pricing</div>
+          <div class="pkg-name">Premium Experience</div>
+          <div class="pkg-duration">Up to 7 Hours</div>
+          <div class="pkg-price">$2,900</div>
           <div class="pkg-price-note">Our most-requested package</div>
         </div>
         <div class="pkg-body">
           <ul>
-            <li>Lead photographer + second photographer</li>
-            <li>8 hours of continuous coverage</li>
-            <li>Pre-event portrait session (1 hour)</li>
-            <li>Online proofing gallery (password protected)</li>
-            <li>Full-resolution digital files, all edited images</li>
-            <li>Personal print release included</li>
-            <li>Sneak peek gallery within 1 week</li>
-            <li>Delivered within 6 weeks</li>
+            <li>Professional photographer for up to 7 hours</li>
+            <li>10×10 album with 30 sides (up to 65 images)</li>
+            <li>All digital files on USB drive (full resolution, no watermark)</li>
+            <li>All images online for 6 months</li>
           </ul>
           <a href="contact.html" class="btn btn-primary" style="width:100%;display:block;text-align:center">Inquire</a>
         </div>
@@ -249,23 +314,19 @@
 
       <div class="pkg-full-card">
         <div class="pkg-header">
-          <div class="pkg-name">Heirloom</div>
-          <div class="pkg-duration">Full Day Coverage</div>
-          <div class="pkg-price">Contact for Pricing</div>
+          <div class="pkg-name">The Ultimate Service</div>
+          <div class="pkg-duration">Unlimited Coverage</div>
+          <div class="pkg-price">$5,800</div>
           <div class="pkg-price-note">The complete experience</div>
         </div>
         <div class="pkg-body">
           <ul>
-            <li>Lead photographer + second photographer</li>
-            <li>Full day coverage (up to 10 hours)</li>
-            <li>Pre-event portrait session (1 hour)</li>
-            <li>Online proofing gallery (password protected)</li>
-            <li>Full-resolution digital files, all edited images</li>
-            <li>Personal print release included</li>
-            <li>Custom designed album (40 pages), crafted to be enjoyed for generations</li>
-            <li>$250 wall portrait credit</li>
-            <li>Sneak peek gallery within 1 week</li>
-            <li>Delivered within 6 weeks</li>
+            <li>Professional photographer for unlimited time on the day of your event</li>
+            <li>12×12 album with 40 sides (up to 90 images)</li>
+            <li>Full set of digital files on USB drive (full resolution, no watermark)</li>
+            <li>Two 4×6 grandparents albums with 20 images each</li>
+            <li>16×20 wall portrait</li>
+            <li>All images online for one year</li>
           </ul>
           <a href="contact.html" class="btn btn-outline" style="width:100%;display:block;text-align:center">Inquire</a>
         </div>
@@ -279,44 +340,64 @@
     <div class="add-ons-grid">
       <div class="add-on">
         <div>
-          <div class="add-on-name">Heirloom Album</div>
-          <div class="add-on-desc">Custom album, 40 pages, archival quality</div>
+          <div class="add-on-name">Photo Booth</div>
+          <div class="add-on-desc">Up to 5 hours, professional attendant, unlimited prints, fun props &amp; costumes, USB drive + images online for one year</div>
         </div>
-        <div class="add-on-price">Custom Quote</div>
+        <div class="add-on-price">$850</div>
       </div>
       <div class="add-on">
         <div>
-          <div class="add-on-name">Additional Hours</div>
-          <div class="add-on-desc">Extend coverage as needed</div>
+          <div class="add-on-name">Video Coverage</div>
+          <div class="add-on-desc">Full event video — service, speeches &amp; celebration highlights, delivered digitally</div>
         </div>
-        <div class="add-on-price">Per Hour</div>
+        <div class="add-on-price">From $2,500</div>
       </div>
       <div class="add-on">
         <div>
-          <div class="add-on-name">Canvas Wall Art</div>
-          <div class="add-on-desc">Gallery-wrapped, multiple sizes</div>
+          <div class="add-on-name">Montage with Live Presentation</div>
+          <div class="add-on-desc">Custom video montage presented live at your event — music, titles, projector setup all included</div>
         </div>
-        <div class="add-on-price">From $295</div>
+        <div class="add-on-price">$1,000</div>
       </div>
       <div class="add-on">
         <div>
-          <div class="add-on-name">Rush Delivery</div>
-          <div class="add-on-desc">Sneak peek gallery in 48 hours</div>
+          <div class="add-on-name">À La Carte Prints</div>
+          <div class="add-on-desc">Professional high-quality prints in a range of sizes — see below</div>
         </div>
-        <div class="add-on-price">Custom Quote</div>
-      </div>
-
-      <div class="add-on">
-        <div>
-          <div class="add-on-name">Videography</div>
-          <div class="add-on-desc">Cinematic video, edited highlight reel</div>
-        </div>
-        <div class="add-on-price">Ask Us</div>
+        <div class="add-on-price">From $6</div>
       </div>
     </div>
   </div>
 
-  
+  <div class="prints-section" style="padding-top:3rem;padding-bottom:1rem;">
+    <h3>À La Carte Print Pricing</h3>
+    <div class="prints-grid">
+      <div class="print-item"><div class="print-size">Wallets</div><div class="print-price">$6 ea. (min 4)</div></div>
+      <div class="print-item"><div class="print-size">3½×5</div><div class="print-price">$29</div></div>
+      <div class="print-item"><div class="print-size">5×5</div><div class="print-price">$29</div></div>
+      <div class="print-item"><div class="print-size">4×6</div><div class="print-price">$29</div></div>
+      <div class="print-item"><div class="print-size">5×7</div><div class="print-price">$34</div></div>
+      <div class="print-item"><div class="print-size">8×10</div><div class="print-price">$53</div></div>
+      <div class="print-item"><div class="print-size">11×14</div><div class="print-price">$85</div></div>
+      <div class="print-item"><div class="print-size">16×20*</div><div class="print-price">$195</div></div>
+      <div class="print-item"><div class="print-size">16×24*</div><div class="print-price">$215</div></div>
+      <div class="print-item"><div class="print-size">20×24*</div><div class="print-price">$255</div></div>
+      <div class="print-item"><div class="print-size">20×30*</div><div class="print-price">$325</div></div>
+      <div class="print-item"><div class="print-size">24×30*</div><div class="print-price">$425</div></div>
+      <div class="print-item"><div class="print-size">30×40*</div><div class="print-price">$550</div></div>
+    </div>
+    <p class="prints-note">* Wall portraits include mounting on artboard. Master Canvas and Fine Art prints available at 100% extra.</p>
+  </div>
+
+  <div class="fine-print">
+    <ul>
+      <li>Package prices are guaranteed upon booking and valid for one year after the event</li>
+      <li>Add-on prices subject to change without notice</li>
+      <li>Shipping available at additional cost and is not included with any products or services</li>
+      <li>Images must be online to be selected for album design — re-posting after hosting expires: $75</li>
+      <li>Items not ordered within two years of event date are subject to a late ordering fee</li>
+    </ul>
+  </div>
 
   <section class="final-cta" style="margin-top:0">
     <div class="final-cta-inner">
