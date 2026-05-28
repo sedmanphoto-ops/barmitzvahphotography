@@ -973,3 +973,9 @@ ul { list-style: none; }
   .gallery-preview { padding: 4rem 1.5rem; }
   .jewish-weddings-cta { padding: 4rem 1.5rem; }
 }
+
+.packages-intro a.btn {
+  color: #ffffff !important;
+  background: #8B6914 !important;
+  border-color: #8B6914 !important;
+}
