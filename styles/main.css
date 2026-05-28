@@ -623,6 +623,8 @@ ul { list-style: none; }
   margin-bottom: 3.5rem;
 }
 
+.packages-intro a { color: var(--white) !important; }
+
 .packages-intro p {
   max-width: 55ch;
   margin: 0 auto;
